@@ -31,12 +31,12 @@ Entire code along with the audio recordings can be found in the github repositor
 Audio recordings are not included in this submission archive and should be 
 downloaded from the repository as the file sizes are large.
 
-HTTP link: https://github.com/zeroXzero/acoustic_crypt 
+HTTP link: https://github.com/prajithrg/accoustic_cryptanalysis 
 
 or clone the entire project by 
 
-git clone https://github.com/zeroXzero/acoustic_crypt.git
-git clone git://github.com/zeroXzero/acoustic_crypt.git
+git clone https://github.com/prajithrg/accoustic_cryptanalysis.git
+git clone git://github.com/prajithrg/accoustic_cryptanalysis.git
 
 Audio recordings can be found in anechoic_chamber_recordings folder
 in the repository.
