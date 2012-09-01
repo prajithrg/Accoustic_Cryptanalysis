@@ -1,0 +1,89 @@
+-----------------------------------------------------------------------------------
+Directory Structure
+-----------------------------------------------------------------------------------
+
+key_board_sidechannel_10307933_10307936
+├── audio_to_file.py 
+├── createwmat.py
+├── dict
+├── dispsim.py
+├── final_ver5.py
+├── Readme
+├── recordwords.sh
+├── simlist.py
+└── sorcmd.sh
+
+-----------------------------------------------------------------------------------
+Dependencies
+-----------------------------------------------------------------------------------
+Numpy and Scipy --- For matrix and array operations
+Matplotlib      --- For plotting
+Gnuradio        --- For basic audio processing and recording (any 
+					other program can be used to directly record 
+					from mic )
+
+Python 2.x      --- Aliased as python2 everywhere in the program
+
+-----------------------------------------------------------------------------------
+Repository
+-----------------------------------------------------------------------------------
+Entire code along with the audio recordings can be found in the github repository. 
+Audio recordings are not included in this submission archive and should be 
+downloaded from the repository as the file sizes are large.
+
+HTTP link: https://github.com/zeroXzero/acoustic_crypt 
+
+or clone the entire project by 
+
+git clone https://github.com/zeroXzero/acoustic_crypt.git
+git clone git://github.com/zeroXzero/acoustic_crypt.git
+
+Audio recordings can be found in anechoic_chamber_recordings folder
+in the repository.
+
+-----------------------------------------------------------------------------------
+Program files
+-----------------------------------------------------------------------------------
+Readme              --- This readme file
+dict                --- Sample dictionary containing 27K words
+simlist.py          --- ADJ, DIST and NEAR tables for QWERTY keyboard
+createwmat.py       --- Program that creates constraint matrices (weq,wadj etc)
+audio_to_file.py    --- Used for recording keystrokes from standard audio input 
+recordwords.sh      --- Used for continuous recording of various words
+sorcmd.sh           --- Sorts the dictionary according to word length and adds 
+                        header which makes further accessing easier. Makes use 
+                        of createwmat.py to create constraint matrices.
+dispsim.py          --- Displays original constraints for any given word
+final_ver5.py       --- Original program that implements the attack
+
+-----------------------------------------------------------------------------------
+Usage and brief explanation
+-----------------------------------------------------------------------------------
+1) Audio recording -- optional 
+
+	python2 audio_to_file.py  -I hw:0,0 -N 48000 sampledump
+
+	check -h option for more details
+
+2) Sorting dictionary and creating constraint matrices for dictionary words   
+	
+	./sorcmd.sh dict
+
+	This created a 'dict_sorted' file and 'wmat' directory that contains the 
+	constraint matrices for various wordlengths
+
+3) Actual constraints
+
+    python2 dispsim.py <word>
+
+	e.g python2 dispsim.py dear
+
+	This program can be used for generating the actual constraints for a word
+
+4) Final attack
+   
+	python2 final_ver5.py <audio_recording>
+
+	e.g. python2 final_ver5.py anechoic_chamber_recordings/laptop_keybrd/<recording>
+
+-----------------------------------------------------------------------------------
